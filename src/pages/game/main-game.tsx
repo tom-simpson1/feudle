@@ -1,9 +1,7 @@
 import Keyboard from "./components/keyboard/keyboard";
 
 const MainGame = () => {
-  return (
-    <Keyboard/>
-  );
+  return <Keyboard />;
 };
 
 export default MainGame;
