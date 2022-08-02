@@ -1,27 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './app.css';
-import MainGame from './pages/game/main-game';
+import React from "react";
+import logo from "./logo.svg";
+import "./app.css";
+import MainGame from "./pages/game/main-game";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/app.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <MainGame/>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <MainGame />
+      </div>
+    </QueryClientProvider>
   );
 }
 
