@@ -1,7 +1,15 @@
 import { Box } from "grommet";
-import Key from "./key";
+import { BackSpaceKey, EnterKey, LetterKey } from "./key";
 
-const Keyboard = () => {
+const Keyboard = ({
+  onLetterClick,
+  onBackSpaceClick,
+  onEnterClick,
+}: {
+  onLetterClick: (letter: string) => void;
+  onBackSpaceClick: () => void;
+  onEnterClick: () => void;
+}) => {
   return (
     <Box
       fill="vertical"
@@ -21,16 +29,16 @@ const Keyboard = () => {
         justify="center"
         direction="row"
       >
-        <Key letter="Q" />
-        <Key letter="W" />
-        <Key letter="E" />
-        <Key letter="R" />
-        <Key letter="T" />
-        <Key letter="Y" />
-        <Key letter="U" />
-        <Key letter="I" />
-        <Key letter="O" />
-        <Key letter="P" />
+        <LetterKey letter="Q" onClick={onLetterClick} />
+        <LetterKey letter="W" onClick={onLetterClick} />
+        <LetterKey letter="E" onClick={onLetterClick} />
+        <LetterKey letter="R" onClick={onLetterClick} />
+        <LetterKey letter="T" onClick={onLetterClick} />
+        <LetterKey letter="Y" onClick={onLetterClick} />
+        <LetterKey letter="U" onClick={onLetterClick} />
+        <LetterKey letter="I" onClick={onLetterClick} />
+        <LetterKey letter="O" onClick={onLetterClick} />
+        <LetterKey letter="P" onClick={onLetterClick} />
       </Box>
       <Box
         fill="vertical"
@@ -41,15 +49,15 @@ const Keyboard = () => {
         justify="center"
         direction="row"
       >
-        <Key letter="A" />
-        <Key letter="S" />
-        <Key letter="D" />
-        <Key letter="F" />
-        <Key letter="G" />
-        <Key letter="H" />
-        <Key letter="J" />
-        <Key letter="K" />
-        <Key letter="L" />
+        <LetterKey letter="A" onClick={onLetterClick} />
+        <LetterKey letter="S" onClick={onLetterClick} />
+        <LetterKey letter="D" onClick={onLetterClick} />
+        <LetterKey letter="F" onClick={onLetterClick} />
+        <LetterKey letter="G" onClick={onLetterClick} />
+        <LetterKey letter="H" onClick={onLetterClick} />
+        <LetterKey letter="J" onClick={onLetterClick} />
+        <LetterKey letter="K" onClick={onLetterClick} />
+        <LetterKey letter="L" onClick={onLetterClick} />
       </Box>
       <Box
         fill="vertical"
@@ -60,13 +68,15 @@ const Keyboard = () => {
         justify="center"
         direction="row"
       >
-        <Key letter="Z" />
-        <Key letter="X" />
-        <Key letter="C" />
-        <Key letter="V" />
-        <Key letter="B" />
-        <Key letter="N" />
-        <Key letter="M" />
+        <BackSpaceKey onClick={onBackSpaceClick} />
+        <LetterKey letter="Z" onClick={onLetterClick} />
+        <LetterKey letter="X" onClick={onLetterClick} />
+        <LetterKey letter="C" onClick={onLetterClick} />
+        <LetterKey letter="V" onClick={onLetterClick} />
+        <LetterKey letter="B" onClick={onLetterClick} />
+        <LetterKey letter="N" onClick={onLetterClick} />
+        <LetterKey letter="M" onClick={onLetterClick} />
+        <EnterKey onClick={onEnterClick} />
       </Box>
     </Box>
   );

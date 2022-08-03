@@ -1,14 +1,79 @@
+import { useState } from "react";
 import useRandomWords from "../../utils/hooks/wordnik/use-random-words";
 import Keyboard from "./components/keyboard/keyboard";
+import Wordboard from "./components/wordboard/wordboard";
 
 const MainGame = () => {
   const numberOfWords = 4;
   const { data, isLoading } = useRandomWords(numberOfWords);
 
+  console.log("Words:", data);
+
+  const [currentGuess, setCurrentGuess] = useState("");
+  const [guesses, setGuesses] = useState<string[]>([
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+  ]);
+
+  console.log("Current Guess:", currentGuess, "Guesses", guesses);
+
+  const handleLetterClick = (letter: string) => {
+    addLetter(letter);
+  };
+
+  const handleBackSpaceClick = () => {
+    removeLetter();
+  };
+
+  const handleEnterClick = () => {
+    submitGuess();
+  };
+
+  const addLetter = (letter: string) => {
+    if (currentGuess.length < 5) {
+      setCurrentGuess(currentGuess + letter);
+    }
+  };
+
+  const removeLetter = () => {
+    if (currentGuess.length > 0) {
+      setCurrentGuess(currentGuess.substring(0, currentGuess.length - 1));
+    }
+  };
+
+  const submitGuess = () => {
+    if (currentGuess.length === 5) {
+      const guessIndex = guesses.indexOf("");
+      const newGuesses = guesses;
+      newGuesses[guessIndex] = currentGuess;
+      setGuesses(newGuesses);
+      setCurrentGuess("");
+    }
+  };
+
   return (
     <>
-      {data ? data.map((word) => <div>{word}</div>) : null}
-      <Keyboard />
+      {data
+        ? data.map((word, idx) => (
+            <Wordboard
+              targetWord={word}
+              guesses={guesses}
+              currentGuess={currentGuess}
+              key={`wordboard${idx}`}
+            ></Wordboard>
+          ))
+        : null}
+      <Keyboard
+        onLetterClick={handleLetterClick}
+        onBackSpaceClick={handleBackSpaceClick}
+        onEnterClick={handleEnterClick}
+      />
     </>
   );
 };

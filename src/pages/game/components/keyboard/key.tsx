@@ -28,7 +28,13 @@ type Letter =
   | "Y"
   | "Z";
 
-const Key = ({ letter }: { letter: Letter }) => {
+const Key = ({
+  symbol,
+  onClick,
+}: {
+  symbol: string;
+  onClick: (symbol: string) => void;
+}) => {
   return (
     <div style={{ margin: "3px" }}>
       <div style={{ cursor: "pointer" }}>
@@ -43,9 +49,10 @@ const Key = ({ letter }: { letter: Letter }) => {
           justify="center"
           direction="column"
           background={{ color: "accent-2" }}
+          onClick={() => onClick(symbol)}
         >
           <Text textAlign="center" color="white" weight="bold">
-            {letter}
+            {symbol}
           </Text>
         </Box>
       </div>
@@ -53,4 +60,22 @@ const Key = ({ letter }: { letter: Letter }) => {
   );
 };
 
-export default Key;
+const LetterKey = ({
+  letter,
+  onClick,
+}: {
+  letter: Letter;
+  onClick: (letter: string) => void;
+}) => {
+  return <Key symbol={letter} onClick={onClick}></Key>;
+};
+
+const BackSpaceKey = ({ onClick }: { onClick: () => void }) => {
+  return <Key symbol="←" onClick={() => onClick()}></Key>;
+};
+
+const EnterKey = ({ onClick }: { onClick: () => void }) => {
+  return <Key symbol="⏎" onClick={() => onClick()}></Key>;
+};
+
+export { LetterKey, BackSpaceKey, EnterKey };
