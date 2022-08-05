@@ -24,23 +24,26 @@ const CompletedGuessRow = ({
       >
         {guess.split("").map((char, idx) => {
           return (
-            <Box
-              width="xxsmall"
-              height="xxsmall"
-              fill="vertical"
-              overflow="auto"
-              align="center"
-              flex="grow"
-              round="xsmall"
-              justify="center"
-              direction="column"
-              background={{ color: "accent-2" }}
-              key={`$completed-guess-box-${targetWord}-${idx}-${rowIndex}`}
-            >
-              <Text textAlign="center" color="white" weight="bold">
-                {char}
-              </Text>
-            </Box>
+            <div style={{ margin: "3px" }}>
+              <Box
+                pad="large"
+                width="xxsmall"
+                height="xxsmall"
+                fill="vertical"
+                overflow="auto"
+                align="center"
+                flex="grow"
+                round="xsmall"
+                justify="center"
+                direction="column"
+                background={{ color: "accent-2" }}
+                key={`$completed-guess-box-${targetWord}-${idx}-${rowIndex}`}
+              >
+                <Text textAlign="center" color="white" weight="bold">
+                  {char}
+                </Text>
+              </Box>
+            </div>
           );
         })}
       </Box>

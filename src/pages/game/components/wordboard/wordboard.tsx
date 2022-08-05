@@ -21,33 +21,36 @@ const Wordboard = ({
     "Taget Word Index",
     targetWordIndex
   );
+  console.log(guesses);
   return (
-    <Box>
-      {guesses.map((guess, idx) => {
-        if (idx === currentGuessIndex) {
-          return (
-            <CurrentGuessRow
-              key={`word-row-${targetWord}-${idx}`}
-              currentGuess={currentGuess}
-              targetWord={targetWord}
-              isDisabled={targetWordIndex >= 0 && idx > targetWordIndex}
-            />
-          );
-        } else if (idx < currentGuessIndex || currentGuessIndex !== -1) {
-          return (
-            <CompletedGuessRow
-              key={`word-row-${targetWord}-${idx}`}
-              rowIndex={idx}
-              guess={guess}
-              targetWord={targetWord}
-              isDisabled={targetWordIndex >= 0 && idx > targetWordIndex}
-            />
-          );
-        } else {
-          return <FutureGuessRow key={`word-row-${targetWord}-${idx}`} />;
-        }
-      })}
-    </Box>
+    <div style={{ margin: "3px" }}>
+      <Box width="20%">
+        {guesses.map((guess, idx) => {
+          if (idx === currentGuessIndex) {
+            return (
+              <CurrentGuessRow
+                key={`word-row-${targetWord}-${idx}`}
+                currentGuess={currentGuess}
+                targetWord={targetWord}
+                isDisabled={targetWordIndex >= 0 && idx > targetWordIndex}
+              />
+            );
+          } else if (idx < currentGuessIndex && currentGuessIndex !== -1) {
+            return (
+              <CompletedGuessRow
+                key={`word-row-${targetWord}-${idx}`}
+                rowIndex={idx}
+                guess={guess}
+                targetWord={targetWord}
+                isDisabled={targetWordIndex >= 0 && idx > targetWordIndex}
+              />
+            );
+          } else {
+            return <FutureGuessRow key={`word-row-${targetWord}-${idx}`} />;
+          }
+        })}
+      </Box>
+    </div>
   );
 };
 

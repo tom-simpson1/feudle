@@ -59,7 +59,7 @@ const MainGame = () => {
 
   return (
     <>
-      {data
+      {/* {data
         ? data.map((word, idx) => (
             <Wordboard
               targetWord={word}
@@ -68,7 +68,13 @@ const MainGame = () => {
               key={`wordboard${idx}`}
             ></Wordboard>
           ))
-        : null}
+        : null} */}
+      <Wordboard
+        targetWord={data ? data[0] : ""}
+        guesses={guesses}
+        currentGuess={currentGuess}
+        key={`wordboard${1}`}
+      ></Wordboard>
       <Keyboard
         onLetterClick={handleLetterClick}
         onBackSpaceClick={handleBackSpaceClick}
