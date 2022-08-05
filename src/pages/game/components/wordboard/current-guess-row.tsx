@@ -27,7 +27,7 @@ const CurrentGuessRow = ({
           key={`current-guess-box-${targetWord}-${i}`}
         >
           <Text textAlign="center" color="white" weight="bold">
-            {currentGuess[i] ?? "%"}
+            {currentGuess[i] ?? " "}
           </Text>
         </Box>
       );
