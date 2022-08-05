@@ -2,6 +2,7 @@ import { useState } from "react";
 import useRandomWords from "../../utils/hooks/wordnik/use-random-words";
 import Keyboard from "./components/keyboard/keyboard";
 import Wordboard from "./components/wordboard/wordboard";
+import WaterBoard from "./components/styled-components/water";
 
 const MainGame = () => {
   const numberOfWords = 4;
@@ -69,6 +70,7 @@ const MainGame = () => {
             ></Wordboard>
           ))
         : null}
+      <WaterBoard />
       <Keyboard
         onLetterClick={handleLetterClick}
         onBackSpaceClick={handleBackSpaceClick}

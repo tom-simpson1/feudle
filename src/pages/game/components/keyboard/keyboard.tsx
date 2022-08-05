@@ -1,5 +1,5 @@
 import { Box } from "grommet";
-import { BackSpaceKey, EnterKey, LetterKey } from "./key";
+import { Key, FunctionKey } from "../styled-components/key";
 
 const Keyboard = ({
   onLetterClick,
@@ -29,16 +29,16 @@ const Keyboard = ({
         justify="center"
         direction="row"
       >
-        <LetterKey letter="Q" onClick={onLetterClick} />
-        <LetterKey letter="W" onClick={onLetterClick} />
-        <LetterKey letter="E" onClick={onLetterClick} />
-        <LetterKey letter="R" onClick={onLetterClick} />
-        <LetterKey letter="T" onClick={onLetterClick} />
-        <LetterKey letter="Y" onClick={onLetterClick} />
-        <LetterKey letter="U" onClick={onLetterClick} />
-        <LetterKey letter="I" onClick={onLetterClick} />
-        <LetterKey letter="O" onClick={onLetterClick} />
-        <LetterKey letter="P" onClick={onLetterClick} />
+        <Key onClick={() => onLetterClick("Q")}>Q</Key>
+        <Key onClick={() => onLetterClick("W")}>W</Key>
+        <Key onClick={() => onLetterClick("E")}>E</Key>
+        <Key onClick={() => onLetterClick("R")}>R</Key>
+        <Key onClick={() => onLetterClick("T")}>T</Key>
+        <Key onClick={() => onLetterClick("Y")}>Y</Key>
+        <Key onClick={() => onLetterClick("U")}>U</Key>
+        <Key onClick={() => onLetterClick("I")}>I</Key>
+        <Key onClick={() => onLetterClick("O")}>O</Key>
+        <Key onClick={() => onLetterClick("P")}>P</Key>
       </Box>
       <Box
         fill="vertical"
@@ -49,15 +49,15 @@ const Keyboard = ({
         justify="center"
         direction="row"
       >
-        <LetterKey letter="A" onClick={onLetterClick} />
-        <LetterKey letter="S" onClick={onLetterClick} />
-        <LetterKey letter="D" onClick={onLetterClick} />
-        <LetterKey letter="F" onClick={onLetterClick} />
-        <LetterKey letter="G" onClick={onLetterClick} />
-        <LetterKey letter="H" onClick={onLetterClick} />
-        <LetterKey letter="J" onClick={onLetterClick} />
-        <LetterKey letter="K" onClick={onLetterClick} />
-        <LetterKey letter="L" onClick={onLetterClick} />
+        <Key onClick={() => onLetterClick("A")}>A</Key>
+        <Key onClick={() => onLetterClick("S")}>S</Key>
+        <Key onClick={() => onLetterClick("D")}>D</Key>
+        <Key onClick={() => onLetterClick("F")}>F</Key>
+        <Key onClick={() => onLetterClick("G")}>G</Key>
+        <Key onClick={() => onLetterClick("H")}>H</Key>
+        <Key onClick={() => onLetterClick("J")}>J</Key>
+        <Key onClick={() => onLetterClick("K")}>K</Key>
+        <Key onClick={() => onLetterClick("L")}>L</Key>
       </Box>
       <Box
         fill="vertical"
@@ -68,15 +68,15 @@ const Keyboard = ({
         justify="center"
         direction="row"
       >
-        <BackSpaceKey onClick={onBackSpaceClick} />
-        <LetterKey letter="Z" onClick={onLetterClick} />
-        <LetterKey letter="X" onClick={onLetterClick} />
-        <LetterKey letter="C" onClick={onLetterClick} />
-        <LetterKey letter="V" onClick={onLetterClick} />
-        <LetterKey letter="B" onClick={onLetterClick} />
-        <LetterKey letter="N" onClick={onLetterClick} />
-        <LetterKey letter="M" onClick={onLetterClick} />
-        <EnterKey onClick={onEnterClick} />
+        <FunctionKey onClick={() => onBackSpaceClick()}>←</FunctionKey>
+        <Key onClick={() => onLetterClick("Z")}>Z</Key>
+        <Key onClick={() => onLetterClick("X")}>X</Key>
+        <Key onClick={() => onLetterClick("C")}>C</Key>
+        <Key onClick={() => onLetterClick("V")}>V</Key>
+        <Key onClick={() => onLetterClick("B")}>B</Key>
+        <Key onClick={() => onLetterClick("N")}>N</Key>
+        <Key onClick={() => onLetterClick("M")}>M</Key>
+        <FunctionKey onClick={() => onEnterClick()}>⏎</FunctionKey>
       </Box>
     </Box>
   );

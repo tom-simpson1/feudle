@@ -1,5 +1,3 @@
-import { Box, Text } from "grommet";
-
 type Letter =
   | "A"
   | "B"
@@ -36,26 +34,21 @@ const Key = ({
   onClick: (symbol: string) => void;
 }) => {
   return (
-    <div style={{ margin: "3px" }}>
-      <div style={{ cursor: "pointer" }}>
-        <Box
-          width="xxsmall"
-          height="xxsmall"
-          fill="vertical"
-          overflow="auto"
-          align="center"
-          flex="grow"
-          round="xsmall"
-          justify="center"
-          direction="column"
-          background={{ color: "accent-2" }}
-          onClick={() => onClick(symbol)}
-        >
-          <Text textAlign="center" color="white" weight="bold">
-            {symbol}
-          </Text>
-        </Box>
-      </div>
+    <div
+      className="no-select"
+      style={{
+        margin: "3px",
+        cursor: "pointer",
+        width: "35px",
+        height: "30px",
+        backgroundColor: "pink",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: "4px",
+      }}
+    >
+      {symbol}
     </div>
   );
 };
