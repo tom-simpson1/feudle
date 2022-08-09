@@ -1,5 +1,17 @@
-import { Box } from "grommet";
 import { Key, FunctionKey } from "../styled-components/key";
+import styled from "styled-components";
+
+const KeyboardRow = styled.div`
+  display: flex;
+`;
+
+const KeyboardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 1rem;
+`;
 
 const Keyboard = ({
   onLetterClick,
@@ -11,24 +23,8 @@ const Keyboard = ({
   onEnterClick: () => void;
 }) => {
   return (
-    <Box
-      fill="vertical"
-      overflow="auto"
-      align="center"
-      flex="grow"
-      round="xsmall"
-      justify="center"
-      direction="column"
-    >
-      <Box
-        fill="vertical"
-        overflow="auto"
-        align="center"
-        flex="grow"
-        round="xsmall"
-        justify="center"
-        direction="row"
-      >
+    <KeyboardContainer>
+      <KeyboardRow>
         <Key onClick={() => onLetterClick("Q")}>Q</Key>
         <Key onClick={() => onLetterClick("W")}>W</Key>
         <Key onClick={() => onLetterClick("E")}>E</Key>
@@ -39,16 +35,8 @@ const Keyboard = ({
         <Key onClick={() => onLetterClick("I")}>I</Key>
         <Key onClick={() => onLetterClick("O")}>O</Key>
         <Key onClick={() => onLetterClick("P")}>P</Key>
-      </Box>
-      <Box
-        fill="vertical"
-        overflow="auto"
-        align="center"
-        flex="grow"
-        round="xsmall"
-        justify="center"
-        direction="row"
-      >
+      </KeyboardRow>
+      <KeyboardRow>
         <Key onClick={() => onLetterClick("A")}>A</Key>
         <Key onClick={() => onLetterClick("S")}>S</Key>
         <Key onClick={() => onLetterClick("D")}>D</Key>
@@ -58,16 +46,8 @@ const Keyboard = ({
         <Key onClick={() => onLetterClick("J")}>J</Key>
         <Key onClick={() => onLetterClick("K")}>K</Key>
         <Key onClick={() => onLetterClick("L")}>L</Key>
-      </Box>
-      <Box
-        fill="vertical"
-        overflow="auto"
-        align="center"
-        flex="grow"
-        round="xsmall"
-        justify="center"
-        direction="row"
-      >
+      </KeyboardRow>
+      <KeyboardRow>
         <FunctionKey onClick={() => onBackSpaceClick()}>←</FunctionKey>
         <Key onClick={() => onLetterClick("Z")}>Z</Key>
         <Key onClick={() => onLetterClick("X")}>X</Key>
@@ -77,8 +57,8 @@ const Keyboard = ({
         <Key onClick={() => onLetterClick("N")}>N</Key>
         <Key onClick={() => onLetterClick("M")}>M</Key>
         <FunctionKey onClick={() => onEnterClick()}>⏎</FunctionKey>
-      </Box>
-    </Box>
+      </KeyboardRow>
+    </KeyboardContainer>
   );
 };
 

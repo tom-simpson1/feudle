@@ -1,8 +1,9 @@
 import { useState } from "react";
 import useRandomWords from "../../utils/hooks/wordnik/use-random-words";
-import Keyboard from "./components/keyboard/keyboard";
-import Wordboard from "./components/wordboard/wordboard";
-import WaterBoard from "./components/styled-components/water";
+import Keyboard from "../../components/keyboard/keyboard";
+import Wordboard from "../../components/wordboard/wordboard";
+import WaterBoard from "../../components/styled-components/water";
+import GameBoard from "../../components/game-board/game-board";
 
 const MainGame = () => {
   const numberOfWords = 4;
@@ -60,17 +61,7 @@ const MainGame = () => {
 
   return (
     <>
-      {data
-        ? data.map((word, idx) => (
-            <Wordboard
-              targetWord={word}
-              guesses={guesses}
-              currentGuess={currentGuess}
-              key={`wordboard${idx}`}
-            ></Wordboard>
-          ))
-        : null}
-      <WaterBoard />
+      <GameBoard />
       <Keyboard
         onLetterClick={handleLetterClick}
         onBackSpaceClick={handleBackSpaceClick}
