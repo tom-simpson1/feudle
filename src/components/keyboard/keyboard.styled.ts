@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
-const Key = styled.div`
+export const Row = styled.div`
+  display: flex;
+`;
+
+export const Keyboard = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 1rem;
+`;
+
+export const Key = styled.div`
   margin: 3px;
   cursor: pointer;
   width: 35px;
@@ -16,8 +28,6 @@ const Key = styled.div`
   box-shadow: 1px 2px #eee;
 `;
 
-const FunctionKey = styled(Key)`
+export const FunctionKey = styled(Key)`
   width: 50px;
 `;
-
-export { Key, FunctionKey };

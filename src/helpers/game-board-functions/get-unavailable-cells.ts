@@ -1,13 +1,6 @@
 import { Orientation } from "../../types/game-board-types";
 
-type Props = {
-  x: number;
-  y: number;
-  word: string;
-  orientation: Orientation;
-};
-
-const getUnavailableCells = ({ word, orientation, x, y }: Props) => {
+const getUnavailableCells = ( x: number, y: number, word: string, orientation: Orientation) => {
   const wordCells: { x: number; y: number }[] = [];
 
   for (let i = -1; i < word.length + 1; i++) {

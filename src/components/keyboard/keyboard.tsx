@@ -1,17 +1,4 @@
-import { Key, FunctionKey } from "../styled-components/key";
-import styled from "styled-components";
-
-const KeyboardRow = styled.div`
-  display: flex;
-`;
-
-const KeyboardContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: lightgrey;
-  border-radius: 1rem;
-`;
+import * as Styled from "./keyboard.styled";
 
 const Keyboard = ({
   onLetterClick,
@@ -23,42 +10,46 @@ const Keyboard = ({
   onEnterClick: () => void;
 }) => {
   return (
-    <KeyboardContainer>
-      <KeyboardRow>
-        <Key onClick={() => onLetterClick("Q")}>Q</Key>
-        <Key onClick={() => onLetterClick("W")}>W</Key>
-        <Key onClick={() => onLetterClick("E")}>E</Key>
-        <Key onClick={() => onLetterClick("R")}>R</Key>
-        <Key onClick={() => onLetterClick("T")}>T</Key>
-        <Key onClick={() => onLetterClick("Y")}>Y</Key>
-        <Key onClick={() => onLetterClick("U")}>U</Key>
-        <Key onClick={() => onLetterClick("I")}>I</Key>
-        <Key onClick={() => onLetterClick("O")}>O</Key>
-        <Key onClick={() => onLetterClick("P")}>P</Key>
-      </KeyboardRow>
-      <KeyboardRow>
-        <Key onClick={() => onLetterClick("A")}>A</Key>
-        <Key onClick={() => onLetterClick("S")}>S</Key>
-        <Key onClick={() => onLetterClick("D")}>D</Key>
-        <Key onClick={() => onLetterClick("F")}>F</Key>
-        <Key onClick={() => onLetterClick("G")}>G</Key>
-        <Key onClick={() => onLetterClick("H")}>H</Key>
-        <Key onClick={() => onLetterClick("J")}>J</Key>
-        <Key onClick={() => onLetterClick("K")}>K</Key>
-        <Key onClick={() => onLetterClick("L")}>L</Key>
-      </KeyboardRow>
-      <KeyboardRow>
-        <FunctionKey onClick={() => onBackSpaceClick()}>←</FunctionKey>
-        <Key onClick={() => onLetterClick("Z")}>Z</Key>
-        <Key onClick={() => onLetterClick("X")}>X</Key>
-        <Key onClick={() => onLetterClick("C")}>C</Key>
-        <Key onClick={() => onLetterClick("V")}>V</Key>
-        <Key onClick={() => onLetterClick("B")}>B</Key>
-        <Key onClick={() => onLetterClick("N")}>N</Key>
-        <Key onClick={() => onLetterClick("M")}>M</Key>
-        <FunctionKey onClick={() => onEnterClick()}>⏎</FunctionKey>
-      </KeyboardRow>
-    </KeyboardContainer>
+    <Styled.Keyboard>
+      <Styled.Row>
+        <Styled.Key onClick={() => onLetterClick("Q")}>Q</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("W")}>W</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("E")}>E</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("R")}>R</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("T")}>T</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("Y")}>Y</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("U")}>U</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("I")}>I</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("O")}>O</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("P")}>P</Styled.Key>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.Key onClick={() => onLetterClick("A")}>A</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("S")}>S</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("D")}>D</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("F")}>F</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("G")}>G</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("H")}>H</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("J")}>J</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("K")}>K</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("L")}>L</Styled.Key>
+      </Styled.Row>
+      <Styled.Row>
+        <Styled.FunctionKey onClick={() => onBackSpaceClick()}>
+          ←
+        </Styled.FunctionKey>
+        <Styled.Key onClick={() => onLetterClick("Z")}>Z</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("X")}>X</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("C")}>C</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("V")}>V</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("B")}>B</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("N")}>N</Styled.Key>
+        <Styled.Key onClick={() => onLetterClick("M")}>M</Styled.Key>
+        <Styled.FunctionKey onClick={() => onEnterClick()}>
+          ⏎
+        </Styled.FunctionKey>
+      </Styled.Row>
+    </Styled.Keyboard>
   );
 };
 
