@@ -1,13 +1,6 @@
-import { WordData } from "../../types/game-board-types";
+import { TileData, WordData } from "../../types/game-board-types";
 
-type Tile =
-  | undefined
-  | {
-      letter: string;
-      revealed: boolean;
-    };
-
-const getTile: (words: WordData[], x: number, y: number) => Tile = (
+const getTile: (words: WordData[], x: number, y: number) => TileData = (
   words: WordData[],
   x: number,
   y: number
@@ -29,18 +22,26 @@ const getTile: (words: WordData[], x: number, y: number) => Tile = (
 };
 
 const generateBoardData = (wordPositionData: WordData[], boardSize: number) => {
-  const tiles: Tile[][] = [];
+  console.log("generating board data...");
+  console.log("data:", wordPositionData);
+  console.log("boardSize:", boardSize);
+
+  const tiles: TileData[][] = [];
 
   for (let x = 0; x < boardSize; x++) {
-    const row: Tile[] = [];
+    console.log("looping x...", x);
+    const row: TileData[] = [];
 
-    for (let y = 0; x < boardSize; y++) {
+    for (let y = 0; y < boardSize; y++) {
+      console.log("looping y...", y);
       const tile = getTile(wordPositionData, x, y);
       row.push(tile);
     }
 
     tiles.push(row);
   }
+
+  return tiles;
 };
 
 export default generateBoardData;

@@ -1,15 +1,13 @@
 import { useState } from "react";
 import useRandomWords from "../../utils/hooks/wordnik/use-random-words";
 import Keyboard from "../../components/keyboard/keyboard";
-import Wordboard from "../../components/wordboard/wordboard";
-import WaterBoard from "../../components/styled-components/water";
 import GameBoard from "../../components/game-board/game-board";
 
 const MainGame = () => {
-  const numberOfWords = 4;
-  const { data, isLoading } = useRandomWords(numberOfWords);
+  // const numberOfWords = 4;
+  // const { data } = useRandomWords(numberOfWords);
 
-  console.log("Words:", data);
+  // console.log("Words:", data);
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<string[]>([
@@ -61,7 +59,15 @@ const MainGame = () => {
 
   return (
     <>
-      <GameBoard />
+      <GameBoard
+        wordStates={[
+          { word: "hello", letterStatuses: [false, false, false, false, true] },
+          { word: "howdy", letterStatuses: [true, true, true, false, false] },
+          { word: "skill", letterStatuses: [true, true, true, false, false] },
+          { word: "false", letterStatuses: [true, false, true, true, false] },
+          { word: "truth", letterStatuses: [true, true, true, false, false] },
+        ]}
+      />
       <Keyboard
         onLetterClick={handleLetterClick}
         onBackSpaceClick={handleBackSpaceClick}

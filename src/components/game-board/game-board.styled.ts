@@ -36,11 +36,15 @@ export const GuessedLetterTile = styled(Tile)`
   background-color: pink;
 `;
 
-export const WaterRow = styled.div`
+export const NonGuessedLetterTile = styled(Tile)`
+  background-color: #bfbfbf;
+`;
+
+export const Row = styled.div`
   display: flex;
 `;
 
-export const BoardBackground = styled.div`
+export const GameBoard = styled.div`
   padding: 2rem;
   border-radius: 1rem;
   background-color: lightgray;

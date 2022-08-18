@@ -7,3 +7,10 @@ export type WordData = {
   y: number;
   orientation: Orientation;
 };
+
+export type TileData =
+  | undefined
+  | {
+      letter: string;
+      revealed: boolean;
+    };
