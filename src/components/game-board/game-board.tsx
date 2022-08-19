@@ -15,10 +15,14 @@ const GameBoard = ({
 
   return (
     <Styled.GameBoard>
-      {boardData.map((rowData) => (
+      {boardData.map((rowData, y) => (
         <Styled.Row>
-          {rowData.map((tileData) => (
-            <Tile tileData={tileData} hideWords={HIDE_WORDS} />
+          {rowData.map((tileData, x) => (
+            <Tile
+              tileData={tileData}
+              hideWords={HIDE_WORDS}
+              animationDelay={-(x + y) * 500}
+            />
           ))}
         </Styled.Row>
       ))}

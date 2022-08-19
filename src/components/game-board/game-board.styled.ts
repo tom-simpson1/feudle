@@ -7,7 +7,7 @@ const waterBobKeyframes = keyframes`
 `;
 
 type TileProps = {
-  animationDelay?: string;
+  animationDelay?: number;
   color?: string;
 };
 // background-color: ${(props) => props.color ?? "#8bf"};
@@ -25,7 +25,7 @@ const Tile = styled.span<TileProps>`
   -webkit-user-select: none;
   box-shadow: 1px 2px #eee;
   animation: ${waterBobKeyframes} 6s ease-in-out infinite;
-  animation-delay: ${(props) => props.animationDelay};
+  animation-delay: ${(props) => props.animationDelay}ms;
 `;
 
 export const WaterTile = styled(Tile)`

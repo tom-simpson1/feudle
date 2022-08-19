@@ -6,13 +6,17 @@ const generateWordPositions = (
   words: { word: string; letterStatuses: boolean[] }[],
   boardSize: number
 ) => {
+  console.log("generating word positions...");
   const placedWords: WordData[] = [];
 
-  words.forEach(({ word }) => {
+  words.forEach(({ word }, idx) => {
+    console.log(`word ${idx}:`, word);
     let orientation: Orientation = "horizontal";
     if (Math.random() >= 0.5) {
       orientation = "vertical";
     }
+
+    console.log("orientation:", orientation);
 
     let x: number;
     let y: number;
@@ -27,7 +31,11 @@ const generateWordPositions = (
         y = Math.floor(Math.random() * (boardSize - word.length));
       }
 
+      console.log("assessing position...", x, y);
+
       const occupiedCells = getWordCells(x, y, word, orientation);
+
+      console.log("occupied cells:", occupiedCells);
 
       placedWords.forEach((placedWord) => {
         const unavailableCells = getUnavailableCells(
@@ -36,6 +44,8 @@ const generateWordPositions = (
           placedWord.word,
           placedWord.orientation
         );
+
+        console.log(`checking (${x}, ${y})`);
 
         occupiedCells.forEach((cell) => {
           if (
