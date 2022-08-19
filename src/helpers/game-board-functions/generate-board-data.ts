@@ -28,12 +28,12 @@ const generateBoardData = (wordPositionData: WordData[], boardSize: number) => {
 
   const tiles: TileData[][] = [];
 
-  for (let x = 0; x < boardSize; x++) {
-    console.log("looping x...", x);
+  for (let y = 0; y < boardSize; y++) {
+    console.log("looping y...", y);
     const row: TileData[] = [];
 
-    for (let y = 0; y < boardSize; y++) {
-      console.log("looping y...", y);
+    for (let x = 0; x < boardSize; x++) {
+      console.log("looping y...", x);
       const tile = getTile(wordPositionData, x, y);
       row.push(tile);
     }

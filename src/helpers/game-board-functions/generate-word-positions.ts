@@ -38,7 +38,12 @@ const generateWordPositions = (
         );
 
         occupiedCells.forEach((cell) => {
-          if (unavailableCells.includes(cell)) {
+          if (
+            unavailableCells.some(
+              (unavailableCell) =>
+                cell.x === unavailableCell.x && cell.y === unavailableCell.y
+            )
+          ) {
             positionValid = false;
           }
         });
