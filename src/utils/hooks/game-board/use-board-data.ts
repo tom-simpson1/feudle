@@ -1,7 +1,6 @@
 import { useMemo } from "react";
-import generateWordPositions from "../../helpers/game-board-functions/generate-word-positions";
-import generateBoardData from "../../helpers/game-board-functions/generate-board-data";
-import { TileData } from "../../types/game-board-types";
+import generateWordPositions from "../../../helpers/game-board-functions/generate-word-positions";
+import generateBoardData from "../../../helpers/game-board-functions/generate-board-data";
 
 const useBoardData = (
   wordData: { word: string; letterStatuses: boolean[] }[],

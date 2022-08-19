@@ -1,4 +1,4 @@
-import useBoardData from "../../hooks/game-board/use-board-data";
+import useBoardData from "../../utils/hooks/game-board/use-board-data";
 import * as Styled from "./game-board.styled";
 import Tile from "./tile";
 
@@ -21,7 +21,7 @@ const GameBoard = ({
             <Tile
               tileData={tileData}
               hideWords={HIDE_WORDS}
-              animationDelay={-(x + y) * 500}
+              animationDelay={-(x + y) * 600}
             />
           ))}
         </Styled.Row>

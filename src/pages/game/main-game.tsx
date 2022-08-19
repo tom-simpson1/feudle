@@ -4,10 +4,10 @@ import Keyboard from "../../components/keyboard/keyboard";
 import GameBoard from "../../components/game-board/game-board";
 
 const MainGame = () => {
-  // const numberOfWords = 4;
-  // const { data } = useRandomWords(numberOfWords);
+  const numberOfWords = 4;
+  const { data } = useRandomWords(numberOfWords);
 
-  // console.log("Words:", data);
+  console.log("Words:", data);
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<string[]>([

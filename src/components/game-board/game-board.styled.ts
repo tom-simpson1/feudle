@@ -1,9 +1,9 @@
 import styled, { keyframes } from "styled-components";
 
 const waterBobKeyframes = keyframes`
-  0% { transform: translatey(0.09rem); }
-  50% { transform: translatey(-0.09rem); }
-  100% { transform: translatey(0.09rem); }
+  0% { transform: translate(-0.04rem, 0.09rem); }
+  50% { transform: translate(0.04rem, -0.09rem); }
+  100% { transform: translate(-0.04rem, 0.09rem); }
 `;
 
 type TileProps = {
