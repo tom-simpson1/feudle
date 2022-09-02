@@ -4,7 +4,7 @@ import GameBoard from "../../components/game-board/game-board";
 import useGuesses from "../../utils/hooks/game-logic/use-guesses";
 
 const MainGame = () => {
-  const numberOfWords = 4;
+  const numberOfWords = 6;
   const { data: words } = useRandomWords(numberOfWords);
 
   const [guesses, addGuess] = useGuesses();
@@ -16,7 +16,11 @@ const MainGame = () => {
       <GameBoard words={words} guesses={guesses} />
       <Keyboard
         guesses={guesses}
-        onLetterClick={(letter) => addGuess(letter)}
+        onLetterClick={(letter) => {
+          console.log("current guesses", guesses);
+          console.log("guessing", letter);
+          addGuess(letter);
+        }}
       />
     </>
   );

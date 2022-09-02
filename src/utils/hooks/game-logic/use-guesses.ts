@@ -4,7 +4,13 @@ const useGuesses: () => [string[], (letter: string) => void] = () => {
   const [guesses, setGuesses] = useState<string[]>([]);
 
   const addGuess = (letter: string) => {
-    setGuesses((oldGuesses) => [...oldGuesses, letter]);
+    setGuesses((oldGuesses) => {
+      if (oldGuesses.some((guess) => guess === letter)) {
+        return oldGuesses;
+      } else {
+        return [...oldGuesses, letter];
+      }
+    });
   };
 
   return [guesses, addGuess];

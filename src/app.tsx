@@ -16,7 +16,7 @@ function App() {
       {/* <ThemeProvider theme={theme}> */}
       <MainGame />
       {/* </ThemeProvider> */}
-      <ReactQueryDevtools initialIsOpen={false} />
+      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
     </QueryClientProvider>
   );
 }

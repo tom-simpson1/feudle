@@ -18,20 +18,18 @@ const GameBoard = ({
   return (
     <Styled.GameBoard>
       {boardData.map((rowData, y) => (
-        <Styled.Row>
+        <Styled.Row key={`row-${y}`}>
           {rowData.map((letter, x) => {
             const animationDelay = -(x + y) * 600;
-            // if (letter)
             return (
               <LetterTile
+                key={`tile (${x}, ${y})`}
                 animationDelay={animationDelay}
                 flipped={guesses.some((guess) => guess === letter)}
                 hideUnflipped={HIDE_WORDS}
                 letter={letter ?? ""}
               />
             );
-            // return <div>{letter}</div>;
-            // return <BlankTile animationDelay={animationDelay} />;
           })}
         </Styled.Row>
       ))}
