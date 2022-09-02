@@ -2,12 +2,10 @@ import * as Styled from "./keyboard.styled";
 
 const Keyboard = ({
   onLetterClick,
-  onBackSpaceClick,
-  onEnterClick,
+  guesses,
 }: {
   onLetterClick: (letter: string) => void;
-  onBackSpaceClick: () => void;
-  onEnterClick: () => void;
+  guesses: string[];
 }) => {
   return (
     <Styled.Keyboard>
@@ -35,9 +33,6 @@ const Keyboard = ({
         <Styled.Key onClick={() => onLetterClick("L")}>L</Styled.Key>
       </Styled.Row>
       <Styled.Row>
-        <Styled.FunctionKey onClick={() => onBackSpaceClick()}>
-          ←
-        </Styled.FunctionKey>
         <Styled.Key onClick={() => onLetterClick("Z")}>Z</Styled.Key>
         <Styled.Key onClick={() => onLetterClick("X")}>X</Styled.Key>
         <Styled.Key onClick={() => onLetterClick("C")}>C</Styled.Key>
@@ -45,9 +40,6 @@ const Keyboard = ({
         <Styled.Key onClick={() => onLetterClick("B")}>B</Styled.Key>
         <Styled.Key onClick={() => onLetterClick("N")}>N</Styled.Key>
         <Styled.Key onClick={() => onLetterClick("M")}>M</Styled.Key>
-        <Styled.FunctionKey onClick={() => onEnterClick()}>
-          ⏎
-        </Styled.FunctionKey>
       </Styled.Row>
     </Styled.Keyboard>
   );

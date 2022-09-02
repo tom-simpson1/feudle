@@ -1,20 +1,13 @@
-import { TileData, WordData } from "../../types/game-board-types";
+import { WordData } from "../../types/game-board-types";
 
-const getTile: (words: WordData[], x: number, y: number) => TileData = (
-  words: WordData[],
-  x: number,
-  y: number
-) => {
+const getTile = (words: WordData[], x: number, y: number) => {
   for (let i = 0; i < words.length; i++) {
     for (let j = 0; j < words[i].word.length; j++) {
       if (
         words[i].x + (words[i].orientation === "horizontal" ? j : 0) === x &&
         words[i].y + (words[i].orientation === "vertical" ? j : 0) === y
       ) {
-        return {
-          letter: words[i].word[j],
-          revealed: words[i].letterStatuses[j],
-        };
+        return words[i].word[j];
       }
     }
   }
@@ -22,14 +15,10 @@ const getTile: (words: WordData[], x: number, y: number) => TileData = (
 };
 
 const generateBoardData = (wordPositionData: WordData[], boardSize: number) => {
-  console.log("generating board data...");
-  console.log("data:", wordPositionData);
-  console.log("boardSize:", boardSize);
-
-  const tiles: TileData[][] = [];
+  const tiles: (string | undefined)[][] = [];
 
   for (let y = 0; y < boardSize; y++) {
-    const row: TileData[] = [];
+    const row: (string | undefined)[] = [];
 
     for (let x = 0; x < boardSize; x++) {
       const tile = getTile(wordPositionData, x, y);

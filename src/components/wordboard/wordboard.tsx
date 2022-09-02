@@ -14,13 +14,7 @@ const Wordboard = ({
 }) => {
   const currentGuessIndex = guesses.indexOf("");
   const targetWordIndex = guesses.indexOf(targetWord);
-  console.log(
-    targetWord,
-    "Current Guess Index",
-    currentGuessIndex,
-    "Taget Word Index",
-    targetWordIndex
-  );
+
   return (
     <Box>
       {guesses.map((guess, idx) => {
