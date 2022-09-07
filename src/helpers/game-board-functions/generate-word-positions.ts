@@ -1,63 +1,32 @@
 import { Orientation, WordData } from "../../types/game-board-types";
-import getUnavailableCells from "./get-unavailable-cells";
-import getWordCells from "./get-word-cells";
+import getAllBoardPositions from "./get-all-board-positions";
+import getInvalidPositionsForWord from "./get-invalid-positions-for-word";
 
 const generateWordPositions = (words: string[], boardSize: number) => {
-  const placedWords: WordData[] = [];
+  const wordPositions: WordData[] = [];
+  const occupiedPositions: [number, number][] = [];
 
-  words.forEach((word, idx) => {
-    let orientation: Orientation = "horizontal";
-    if (Math.random() >= 0.5) {
-      orientation = "vertical";
-    }
-
-    let x: number;
-    let y: number;
-
-    while (true) {
-      let positionValid = true;
-      if (orientation === "horizontal") {
-        x = Math.floor(Math.random() * (boardSize - word.length));
-        y = Math.floor(Math.random() * boardSize);
-      } else {
-        x = Math.floor(Math.random() * boardSize);
-        y = Math.floor(Math.random() * (boardSize - word.length));
-      }
-
-      const occupiedCells = getWordCells(x, y, word, orientation);
-
-      placedWords.forEach((placedWord) => {
-        const unavailableCells = getUnavailableCells(
-          placedWord.x,
-          placedWord.y,
-          placedWord.word,
-          placedWord.orientation
-        );
-
-        occupiedCells.forEach((cell) => {
-          if (
-            unavailableCells.some(
-              (unavailableCell) =>
-                cell.x === unavailableCell.x && cell.y === unavailableCell.y
-            )
-          ) {
-            positionValid = false;
-          }
-        });
-      });
-
-      if (positionValid) break;
-    }
-
-    placedWords.push({
-      word,
+  words.forEach((word) => {
+    const orientation: Orientation =
+      Math.random() >= 0.5 ? "horizontal" : "vertical";
+    const validPositions = getAllBoardPositions(
+      boardSize,
       orientation,
-      x,
-      y,
-    });
+      word.length,
+      occupiedPositions
+    );
+
+    const [x, y] =
+      validPositions[Math.floor(Math.random() * validPositions.length)];
+
+    wordPositions.push({ orientation, word, x, y });
+
+    occupiedPositions.push(
+      ...getInvalidPositionsForWord(x, y, orientation, word.length)
+    );
   });
 
-  return placedWords;
+  return wordPositions;
 };
 
 export default generateWordPositions;

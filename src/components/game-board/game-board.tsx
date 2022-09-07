@@ -11,29 +11,31 @@ const GameBoard = ({
 }) => {
   const BOARD_SIZE = 10;
 
-  const HIDE_WORDS = false;
+  const HIDE_WORDS = true;
 
   const boardData = useBoardData(words, BOARD_SIZE);
 
   return (
-    <Styled.GameBoard>
+    // <div>hello there</div>
+    <table>
       {boardData.map((rowData, y) => (
-        <Styled.Row key={`row-${y}`}>
+        <tr key={`row-${y}`}>
           {rowData.map((letter, x) => {
             const animationDelay = -(x + y) * 600;
             return (
-              <LetterTile
-                key={`tile (${x}, ${y})`}
-                animationDelay={animationDelay}
-                flipped={guesses.some((guess) => guess === letter)}
-                hideUnflipped={HIDE_WORDS}
-                letter={letter ?? ""}
-              />
+              <td key={`tile (${x}, ${y})`}>
+                <LetterTile
+                  animationDelay={animationDelay}
+                  flipped={guesses.some((guess) => guess === letter)}
+                  hideUnflipped={HIDE_WORDS}
+                  letter={letter ?? ""}
+                />
+              </td>
             );
           })}
-        </Styled.Row>
+        </tr>
       ))}
-    </Styled.GameBoard>
+    </table>
   );
 };
 

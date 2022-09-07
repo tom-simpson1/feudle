@@ -21,15 +21,15 @@ const LetterTile = memo(
     return (
       <Styled.FlipContainer className={flipped ? "flipped" : ""}>
         <Styled.TileFront>
-          {/* {hideUnflipped ? ( */}
-          <Styled.WaterTile animationDelay={animationDelay}>
-            {letter ? letter : "_"}
-          </Styled.WaterTile>
-          {/* ) : (
-        <Styled.NonGuessedLetterTile animationDelay={animationDelay}>
-          N
-        </Styled.NonGuessedLetterTile>
-        )} */}
+          {hideUnflipped ? (
+            <Styled.WaterTile animationDelay={animationDelay}>
+              {letter ? letter : "_"}
+            </Styled.WaterTile>
+          ) : (
+            <Styled.NonGuessedLetterTile animationDelay={animationDelay}>
+              {letter}
+            </Styled.NonGuessedLetterTile>
+          )}
         </Styled.TileFront>
         <Styled.TileBack>
           <Styled.GuessedLetterTile animationDelay={animationDelay}>
