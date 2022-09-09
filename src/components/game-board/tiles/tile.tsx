@@ -17,7 +17,6 @@ const LetterTile = memo(
     letter: string;
     hideUnflipped: boolean;
   }) => {
-    console.log("letter tile:", animationDelay, flipped, letter, hideUnflipped);
     return (
       <Styled.TilePadding>
         <Styled.FlipContainer className={flipped ? "flipped" : ""}>

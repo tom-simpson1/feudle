@@ -15,7 +15,6 @@ const getTile = (words: WordData[], x: number, y: number) => {
 };
 
 const generateBoardData = (wordPositionData: WordData[], boardSize: number) => {
-  console.log("generating board data...");
   const tiles: (string | undefined)[][] = [];
 
   for (let y = 0; y < boardSize; y++) {

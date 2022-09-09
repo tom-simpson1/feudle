@@ -9,26 +9,17 @@ const getInvalidPositionsForWord = (
   const positions: [number, number][] = [];
 
   for (let i = 0; i < length; i++) {
-    let primaryDirection;
-    let secondaryDirection;
-
     if (orientation === "horizontal") {
-      primaryDirection = x;
-      secondaryDirection = y;
+      if (i === 0) positions.push([x - 1, y]);
+      else if (i === length - 1) positions.push([x + length, y]);
+
+      positions.push([x + i, y - 1], [x + i, y], [x + i, y + 1]);
     } else {
-      primaryDirection = y;
-      secondaryDirection = x;
+      if (i === 0) positions.push([x, y - 1]);
+      else if (i === length - 1) positions.push([x, y + length]);
+
+      positions.push([x - 1, y + i], [x, y + i], [x + 1, y + i]);
     }
-
-    if (i === 0) positions.push([primaryDirection - 1, secondaryDirection]);
-    else if (i === primaryDirection + length - 1)
-      positions.push([primaryDirection + length, secondaryDirection]);
-
-    positions.push(
-      [primaryDirection + i, secondaryDirection - 1],
-      [primaryDirection + i, secondaryDirection],
-      [primaryDirection + i, secondaryDirection + 1]
-    );
   }
 
   return positions;

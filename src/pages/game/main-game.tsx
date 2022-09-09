@@ -4,7 +4,7 @@ import GameBoard from "../../components/game-board/game-board";
 import useGuesses from "../../utils/hooks/game-logic/use-guesses";
 
 const MainGame = () => {
-  const numberOfWords = 6;
+  const numberOfWords = 5;
   const { data: words } = useRandomWords(numberOfWords);
 
   const [guesses, addGuess] = useGuesses();

@@ -6,6 +6,10 @@ type WordResponse = { id: number; word: string };
 const getWords: (numberOfWords: number) => Promise<string[]> = async (
   numberOfWords: number
 ) => {
+  if (numberOfWords > 5) {
+    throw new Error("max word count exceeded");
+  }
+
   // const words: string[] = [];
   // while (words.length < numberOfWords) {
   //   const wordsLeft = numberOfWords - words.length;
@@ -18,7 +22,7 @@ const getWords: (numberOfWords: number) => Promise<string[]> = async (
   //   });
   // }
   // return words;
-  return ["HELLO", "THERE", "SILLY", "FELLA", "BOTTLE", "BONK"];
+  return ["HELLO", "THERE", "SILLY", "LADY", "BOTTLE"];
 };
 
 const useRandomWords = (number: number) => {

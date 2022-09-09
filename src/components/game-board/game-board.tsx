@@ -1,6 +1,5 @@
 import useBoardData from "../../utils/hooks/game-board/use-board-data";
-import * as Styled from "./game-board.styled";
-import { BlankTile, LetterTile } from "./tiles/tile";
+import { LetterTile } from "./tiles/tile";
 
 const GameBoard = ({
   words,
@@ -18,23 +17,25 @@ const GameBoard = ({
   return (
     // <div>hello there</div>
     <table>
-      {boardData.map((rowData, y) => (
-        <tr key={`row-${y}`}>
-          {rowData.map((letter, x) => {
-            const animationDelay = -(x + y) * 600;
-            return (
-              <td key={`tile (${x}, ${y})`}>
-                <LetterTile
-                  animationDelay={animationDelay}
-                  flipped={guesses.some((guess) => guess === letter)}
-                  hideUnflipped={HIDE_WORDS}
-                  letter={letter ?? ""}
-                />
-              </td>
-            );
-          })}
-        </tr>
-      ))}
+      <tbody>
+        {boardData.map((rowData, y) => (
+          <tr key={`row-${y}`}>
+            {rowData.map((letter, x) => {
+              const animationDelay = -(x + y) * 600;
+              return (
+                <td key={`tile (${x}, ${y})`}>
+                  <LetterTile
+                    animationDelay={animationDelay}
+                    flipped={guesses.some((guess) => guess === letter)}
+                    hideUnflipped={HIDE_WORDS}
+                    letter={letter ?? ""}
+                  />
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };
