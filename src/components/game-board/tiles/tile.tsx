@@ -22,9 +22,7 @@ const LetterTile = memo(
         <Styled.FlipContainer className={flipped ? "flipped" : ""}>
           <Styled.TileFront>
             {hideUnflipped ? (
-              <Styled.WaterTile animationDelay={animationDelay}>
-                {letter ? letter : "_"}
-              </Styled.WaterTile>
+              <Styled.WaterTile animationDelay={animationDelay} />
             ) : (
               <Styled.NonGuessedLetterTile animationDelay={animationDelay}>
                 {letter}
@@ -33,7 +31,7 @@ const LetterTile = memo(
           </Styled.TileFront>
           <Styled.TileBack>
             <Styled.GuessedLetterTile animationDelay={animationDelay}>
-              {letter}
+              {flipped ? letter : ""}
             </Styled.GuessedLetterTile>
           </Styled.TileBack>
         </Styled.FlipContainer>
