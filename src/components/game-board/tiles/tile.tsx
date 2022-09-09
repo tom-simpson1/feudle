@@ -19,24 +19,26 @@ const LetterTile = memo(
   }) => {
     console.log("letter tile:", animationDelay, flipped, letter, hideUnflipped);
     return (
-      <Styled.FlipContainer className={flipped ? "flipped" : ""}>
-        <Styled.TileFront>
-          {hideUnflipped ? (
-            <Styled.WaterTile animationDelay={animationDelay}>
-              {letter ? letter : "_"}
-            </Styled.WaterTile>
-          ) : (
-            <Styled.NonGuessedLetterTile animationDelay={animationDelay}>
+      <Styled.TilePadding>
+        <Styled.FlipContainer className={flipped ? "flipped" : ""}>
+          <Styled.TileFront>
+            {hideUnflipped ? (
+              <Styled.WaterTile animationDelay={animationDelay}>
+                {letter ? letter : "_"}
+              </Styled.WaterTile>
+            ) : (
+              <Styled.NonGuessedLetterTile animationDelay={animationDelay}>
+                {letter}
+              </Styled.NonGuessedLetterTile>
+            )}
+          </Styled.TileFront>
+          <Styled.TileBack>
+            <Styled.GuessedLetterTile animationDelay={animationDelay}>
               {letter}
-            </Styled.NonGuessedLetterTile>
-          )}
-        </Styled.TileFront>
-        <Styled.TileBack>
-          <Styled.GuessedLetterTile animationDelay={animationDelay}>
-            {letter}
-          </Styled.GuessedLetterTile>
-        </Styled.TileBack>
-      </Styled.FlipContainer>
+            </Styled.GuessedLetterTile>
+          </Styled.TileBack>
+        </Styled.FlipContainer>
+      </Styled.TilePadding>
     );
   }
 );

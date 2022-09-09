@@ -15,8 +15,8 @@ type TileProps = {
 
 const Tile = styled.span<TileProps>`
   margin: 0.1rem;
-  // width: 2rem;
-  // height: 2rem;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,4 +85,8 @@ export const TileFront = styled.div`
 export const TileBack = styled.div`
   ${TileSide}
   transform: rotateY(-180deg);
+`;
+
+export const TilePadding = styled.div`
+  margin: 0.1rem;
 `;
