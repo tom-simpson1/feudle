@@ -28,6 +28,10 @@ export const Key = styled.div`
   box-shadow: 1px 2px #eee;
 `;
 
+export const GuessedKey = styled(Key)`
+  opacity: 50%;
+`;
+
 export const FunctionKey = styled(Key)`
   width: 50px;
 `;

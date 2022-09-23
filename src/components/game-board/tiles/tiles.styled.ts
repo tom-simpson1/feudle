@@ -30,14 +30,17 @@ const Tile = styled.span<TileProps>`
 `;
 
 export const WaterTile = styled(Tile)`
+  color: white;
   background-color: #8bf;
 `;
 
 export const GuessedLetterTile = styled(Tile)`
-  background-color: pink;
+  color: white;
+  background-color: orangered;
 `;
 
 export const NonGuessedLetterTile = styled(Tile)`
+  color: white;
   background-color: #bfbfbf;
 `;
 

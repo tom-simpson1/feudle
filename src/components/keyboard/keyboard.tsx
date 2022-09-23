@@ -1,45 +1,88 @@
 import * as Styled from "./keyboard.styled";
 
+const LINE_ONE = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+const LINE_TWO = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+const LINE_THREE = ["Z", "X", "C", "V", "B", "N", "M"];
+
 const Keyboard = ({
   onLetterClick,
   guesses,
-}: {
+}: // wordLetters,
+{
   onLetterClick: (letter: string) => void;
   guesses: string[];
+  // wordLetters: string[];
 }) => {
   return (
     <Styled.Keyboard>
       <Styled.Row>
-        <Styled.Key onClick={() => onLetterClick("Q")}>Q</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("W")}>W</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("E")}>E</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("R")}>R</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("T")}>T</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("Y")}>Y</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("U")}>U</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("I")}>I</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("O")}>O</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("P")}>P</Styled.Key>
+        {LINE_ONE.map((letter) => {
+          if (guesses.includes(letter)) {
+            return (
+              <Styled.GuessedKey
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.GuessedKey>
+            );
+          } else {
+            return (
+              <Styled.Key
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.Key>
+            );
+          }
+        })}
       </Styled.Row>
       <Styled.Row>
-        <Styled.Key onClick={() => onLetterClick("A")}>A</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("S")}>S</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("D")}>D</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("F")}>F</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("G")}>G</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("H")}>H</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("J")}>J</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("K")}>K</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("L")}>L</Styled.Key>
+        {LINE_TWO.map((letter) => {
+          if (guesses.includes(letter)) {
+            return (
+              <Styled.GuessedKey
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.GuessedKey>
+            );
+          } else {
+            return (
+              <Styled.Key
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.Key>
+            );
+          }
+        })}
       </Styled.Row>
       <Styled.Row>
-        <Styled.Key onClick={() => onLetterClick("Z")}>Z</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("X")}>X</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("C")}>C</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("V")}>V</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("B")}>B</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("N")}>N</Styled.Key>
-        <Styled.Key onClick={() => onLetterClick("M")}>M</Styled.Key>
+        {LINE_THREE.map((letter) => {
+          if (guesses.includes(letter)) {
+            return (
+              <Styled.GuessedKey
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.GuessedKey>
+            );
+          } else {
+            return (
+              <Styled.Key
+                key={`letter-key-${letter}`}
+                onClick={() => onLetterClick(letter)}
+              >
+                {letter}
+              </Styled.Key>
+            );
+          }
+        })}
       </Styled.Row>
     </Styled.Keyboard>
   );
